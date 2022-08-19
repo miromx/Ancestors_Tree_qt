@@ -3,10 +3,11 @@
 #include <QLabel>
 #include<QBitmap>
 
-Human::Human(QObject *parent) : QObject(parent)
+Human::Human()
 {
     l_fName = new QLabel(this);
     l_lName = new QLabel(this);
+    l_age = new QLabel(this);
     pic = new QLabel(this);
     pic->setGeometry(0, 0, 120, 120);
     QPixmap pix("/home/kleo/Pictures/cat.png");
@@ -17,9 +18,11 @@ Human::Human(QObject *parent) : QObject(parent)
     queryLayout = new QVBoxLayout(this);
     this->l_fName->setText("Jonh");
     this->l_lName->setText("Dou");
+    this->l_age->setText(QString::number(age));
     queryLayout->addWidget(pic);
     queryLayout->addWidget(l_fName);
     queryLayout->addWidget(l_lName);
+    queryLayout->addWidget(l_age);
     this->setLayout(queryLayout);
 
 }
@@ -68,30 +71,30 @@ void Human::getDate()
     qDebug()<<"done";
 }
 
-void Human::mouseMoveEvent(QGraphicsSceneMouseEvent *event)
-{
-    /* Set the position of the graphical element in the graphic scene,
-     * translate coordinates of the cursor within the graphic element
-     * in the coordinate system of the graphic scenes
-     * */
-    this->setPos(mapToScene(event->pos()));
-}
+// void Human::mouseMoveEvent(QGraphicsSceneMouseEvent *event)
+// {
+//     /* Set the position of the graphical element in the graphic scene,
+//      * translate coordinates of the cursor within the graphic element
+//      * in the coordinate system of the graphic scenes
+//      * */
+//     this->setPos(mapToScene(event->pos()));
+// }
 
-void Human::mousePressEvent(QGraphicsSceneMouseEvent *event)
-{
-    if (QApplication::mouseButtons() == Qt::LeftButton){
-    this->setCursor(QCursor(Qt::ClosedHandCursor));
-    Q_UNUSED(event);}
-    if (QApplication::mouseButtons() == Qt::RightButton){
-        this->deleteLater();
-    }
-}
+// void Human::mousePressEvent(QGraphicsSceneMouseEvent *event)
+// {
+//     if (QApplication::mouseButtons() == Qt::LeftButton){
+//     this->setCursor(QCursor(Qt::ClosedHandCursor));
+//     Q_UNUSED(event);}
+//     if (QApplication::mouseButtons() == Qt::RightButton){
+//         this->deleteLater();
+//     }
+// }
 
-void Human::mouseReleaseEvent(QGraphicsSceneMouseEvent *event)
-{
-    this->setCursor(QCursor(Qt::ArrowCursor));
-    Q_UNUSED(event);
-}
+// void Human::mouseReleaseEvent(QGraphicsSceneMouseEvent *event)
+// {
+//     this->setCursor(QCursor(Qt::ArrowCursor));
+//     Q_UNUSED(event);
+// }
 
 
 

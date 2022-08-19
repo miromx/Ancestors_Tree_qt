@@ -16,8 +16,8 @@ MainWindow::MainWindow(QWidget *parent)
 //    scene->addPixmap(img);
 
 
-    Human me = new Human();
-    scene->addItem(me);
+    Human* me = new Human();
+    scene->addWidget(me);
 
 
 }

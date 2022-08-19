@@ -15,11 +15,11 @@
 #include <QCursor>
 #include <QApplication>
 
-class Human: public QWidget, public QGraphicsItem
+class Human: public QWidget
 {
     Q_OBJECT
 public:
-     explicit Human(QObject *parent = nullptr);
+     explicit Human();
     ~Human();
 
 //    QPixmap avatar, circ;
@@ -28,6 +28,7 @@ public:
     QLabel* l_fName;
     QLabel* l_lName;
     QLabel* l_mName;
+    QLabel* l_age;
 
 //    void setAvatar(QPixmap pic);
 //    QPixmap getAvatar(){return avatar;}
